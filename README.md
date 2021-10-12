@@ -15,3 +15,6 @@ The different implementations in this repository, had been written following thi
 This is an excelent exercise for understanding this different design patterns since you are gradually following baby steps from the simplest implementation of the domain model threw each level of abstraction.
 
 There are many more to be done!
+
+After some strugle developing the DMBasic implementation, the UML Diagram would be something closer to this:
+![image](https://snipboard.io/glquRv.jpg)
