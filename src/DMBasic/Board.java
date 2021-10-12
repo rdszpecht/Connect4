@@ -13,14 +13,26 @@ public class Board {
         }
     }
 
+    protected boolean isAvailableMove(int column) {
+        return !(columns[column].isFull());
+    }
+
     protected boolean makeMove(int column, Color color){
-        return this.columns[column].makeMove(color);
+        return columns[column].makeMove(color);
+    }
+
+    protected Color colorAt(int y, int x){
+        if (x >= 0 && y >= 0 && x < columns.length && y < rows) {
+            return columns[x].colorAt(y);
+        }else{
+            return Color.EMPTY;
+        }
     }
 
     protected boolean isFull(){
         int i = 0;
 
-        while(i < columns.length && !(columns[i].isFull())){
+        while(i < columns.length && columns[i].isFull()){
             i++;
         }
 
@@ -28,6 +40,10 @@ public class Board {
             return true;
         }
         return false;
+    }
+
+    protected int getHeightFromColumn(int column){
+        return columns[column].getHeight();
     }
 
     @Override
@@ -44,4 +60,5 @@ public class Board {
         toPrint += "   0  1  2  3  4  5  6";
         return toPrint;
     }
+
 }

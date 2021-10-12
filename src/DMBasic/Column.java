@@ -5,18 +5,26 @@ import java.util.Stack;
 public class Column {
 
     private Stack<Color> colors;
-    private int height;
+    private int maxHeight;
 
-    protected Column(int height){
+    protected Column(int maxHeight){
         this.colors = new Stack<Color>();
-        this.height = height;
+        this.maxHeight = maxHeight;
     }
 
     protected boolean makeMove(Color color){
-        if (colors.size() < height) {
+        if (colors.size() < maxHeight) {
             return colors.add(color);
         }else{
             return false;
+        }
+    }
+
+    protected Color colorAt(int y){
+        if (colors.size() > y) {
+            return colors.elementAt(y);
+        }else{
+            return Color.EMPTY;
         }
     }
 
@@ -29,9 +37,13 @@ public class Column {
     }
 
     protected boolean isFull(){
-        if (this.colors.size() >= height){
+        if (this.colors.size() >= maxHeight){
             return true;
         }
         return false;
+    }
+
+    protected int getHeight(){
+        return colors.size();
     }
 }

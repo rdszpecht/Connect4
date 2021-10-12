@@ -3,18 +3,21 @@ package DMBasic;
 public class Player {
     private Color color;
     private Status status;
+    private final String name;
 
     public Player(Color color, Status status) {
         this.color = color;
         this.status = status;
+
+        if (this.color == Color.RED){
+            this.name = "Red Player";
+        }else{
+            this.name = "Yellow Player";
+        }
     }
 
     protected String getName(){
-        if (this.color == Color.RED){
-            return "Red Player";
-        }else{
-            return "Yellow Player";
-        }
+        return this.name;
     }
 
     protected Color getColor(){

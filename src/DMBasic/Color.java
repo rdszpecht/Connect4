@@ -1,7 +1,7 @@
 package DMBasic;
 
 public enum Color {
-    YELLOW, RED;
+    YELLOW, RED, EMPTY;
 
     @Override
     public String toString() {
